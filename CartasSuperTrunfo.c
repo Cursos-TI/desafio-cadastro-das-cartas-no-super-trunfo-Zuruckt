@@ -8,6 +8,8 @@ struct Card {
     float area;
     float gdp;
     int poi;
+    float populationDensity;
+    float gdpPerCapita;
 };
 
 int main() {
@@ -62,6 +64,12 @@ int main() {
     printf("Digite o Número de Pontos Turísticos da Segunda Carta: ");
     scanf(" %d", &cardTwo.poi);
 
+    cardOne.populationDensity = cardOne.population / cardOne.area;
+    cardTwo.populationDensity = cardTwo.population / cardTwo.area;
+
+    cardOne.gdpPerCapita = cardOne.gdp / cardOne.population;
+    cardTwo.gdpPerCapita = cardTwo.gdp / cardTwo.population;
+
     printf("=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\n");
 
     printf("Carta %c%s \n", cardOne.state, cardOne.code);
@@ -70,6 +78,9 @@ int main() {
     printf("Área: %.2f\n", cardOne.area);
     printf("PIB: %.2f\n", cardOne.gdp);
     printf("Pontos Turísticos: %d\n", cardOne.poi);
+    printf("Densidade Populacional: %f\n", cardOne.populationDensity);
+    printf("PIB per Capita: %f\n", cardOne.gdpPerCapita);
+
     printf("\n");
 
     printf("Carta %c%s \n", cardTwo.state, cardTwo.code);
@@ -78,6 +89,8 @@ int main() {
     printf("Área: %.2f\n", cardTwo.area);
     printf("PIB: %.2f\n", cardTwo.gdp);
     printf("Pontos Turísticos: %d\n", cardTwo.poi);
+    printf("Densidade Populacional: %f\n", cardTwo.populationDensity);
+    printf("PIB per Capita: %f\n", cardTwo.gdpPerCapita);
     printf("\n");
     
     return 0;
