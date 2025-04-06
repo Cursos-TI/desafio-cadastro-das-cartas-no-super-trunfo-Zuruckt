@@ -10,6 +10,7 @@ struct Card {
     int poi;
     float populationDensity;
     float gdpPerCapita;
+    float superPower;
 };
 
 int main() {
@@ -18,7 +19,7 @@ int main() {
 
     printf("Cadastro de Cartas\n");
 
-    printf("=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\n");
+    printf("=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~==~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\n");
 
     printf("Digite o Estado da Primeira Carta: ");
     scanf(" %c", &cardOne.state);
@@ -41,7 +42,7 @@ int main() {
     printf("Digite o Número de Pontos Turísticos da Primeira Carta: ");
     scanf(" %d", &cardOne.poi);
 
-    printf("=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\n");
+    printf("=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~==~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\n");
 
     printf("Digite o Estado da Segunda Carta: ");
     scanf(" %c", &cardTwo.state);
@@ -70,7 +71,10 @@ int main() {
     cardOne.gdpPerCapita = cardOne.gdp / cardOne.population;
     cardTwo.gdpPerCapita = cardTwo.gdp / cardTwo.population;
 
-    printf("=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\n");
+    cardOne.superPower = (float) cardOne.population + (float) cardOne.poi + cardOne.area + (1 / cardOne.populationDensity) + cardOne.gdp, cardOne.gdpPerCapita;
+    cardTwo.superPower = (float) cardTwo.population + (float) cardTwo.poi + cardTwo.area + (1 / cardTwo.populationDensity) + cardTwo.gdp, cardTwo.gdpPerCapita;
+
+    printf("=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~==~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\n");
 
     printf("Carta %c%s \n", cardOne.state, cardOne.code);
     printf("Nome: %s\n", cardOne.name);
@@ -92,6 +96,17 @@ int main() {
     printf("Densidade Populacional: %f\n", cardTwo.populationDensity);
     printf("PIB per Capita: %f\n", cardTwo.gdpPerCapita);
     printf("\n");
+
+    printf("=~=~=~=~=~=~=~=~=~=~=Comparação de Cartas=~=~=~=~=~=~=~=~=~=~=\n");
+    
+    // compare the cards
+    printf("Populacao: %s venceu\n", (cardOne.population > cardTwo.population) ? "Carta 1" : (cardTwo.population > cardOne.population) ? "Carta 2" : "Empate");
+    printf("Area: %s venceu\n", (cardOne.area > cardTwo.area) ? "Carta 1" : (cardTwo.area > cardOne.area) ? "Carta 2" : "Empate");
+    printf("PIB: %s venceu\n", (cardOne.gdp > cardTwo.gdp) ? "Carta 1" : (cardTwo.gdp > cardOne.gdp) ? "Carta 2" : "Empate");
+    printf("Pontos Turisticos: %s venceu\n", (cardOne.poi > cardTwo.poi) ? "Carta 1" : (cardTwo.poi > cardOne.poi) ? "Carta 2" : "Empate");
+    printf("Densidade Populacional: %s venceu\n", (cardOne.populationDensity < cardTwo.populationDensity) ? "Carta 1" : (cardTwo.populationDensity < cardOne.populationDensity) ? "Carta 2" : "Empate");
+    printf("PIB per Capita: %s venceu\n", (cardOne.gdpPerCapita > cardTwo.gdpPerCapita) ? "Carta 1" : (cardTwo.gdpPerCapita > cardOne.gdpPerCapita) ? "Carta 2" : "Empate");
+    printf("Super Poder: %s venceu\n", (cardOne.superPower > cardTwo.superPower) ? "Carta 1" : (cardTwo.superPower > cardOne.superPower) ? "Carta 2" : "Empate");
     
     return 0;
 }
