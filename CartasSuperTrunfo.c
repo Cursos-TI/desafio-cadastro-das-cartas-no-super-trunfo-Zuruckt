@@ -99,7 +99,6 @@ int main() {
 
     printf("=~=~=~=~=~=~=~=~=~=~=Comparação de Cartas=~=~=~=~=~=~=~=~=~=~=\n");
     
-    // compare the cards
     printf("Populacao: %s venceu\n", (cardOne.population > cardTwo.population) ? "Carta 1" : (cardTwo.population > cardOne.population) ? "Carta 2" : "Empate");
     printf("Area: %s venceu\n", (cardOne.area > cardTwo.area) ? "Carta 1" : (cardTwo.area > cardOne.area) ? "Carta 2" : "Empate");
     printf("PIB: %s venceu\n", (cardOne.gdp > cardTwo.gdp) ? "Carta 1" : (cardTwo.gdp > cardOne.gdp) ? "Carta 2" : "Empate");
